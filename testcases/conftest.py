@@ -64,19 +64,3 @@ def pytest_configure(config):
     config.option.htmlpath=os.path.abspath(os.curdir)+"\\reports\\"+datetime.now().strftime('%Y-%m-%d--%H-%M-%S')+".html"
 
 
-
-##################FROM CHAT GPT FOR SCREENSHOT SAVING #################################################3
-import pytest
-from utilities.screenshot import ScreenshotUtil
-
-@pytest.hookimpl(hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    outcome = yield
-    report = outcome.get_result()
-
-    if report.when == "call":
-        # Access driver from test class
-        driver = getattr(item.cls, "driver", None)
-
-        if driver:
-            ScreenshotUtil.take_screenshot(driver, item.name)
