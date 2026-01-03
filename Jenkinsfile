@@ -14,6 +14,7 @@ pipeline {
             steps {
                 bat '''
                 pip install --upgrade pip
+                 python -m pip install --upgrade pip
                 pip install -r requirements.txt
                 '''
             }
@@ -22,7 +23,7 @@ pipeline {
         stage('Run PyTest Suite') {
             steps {
                 bat '''
-                pytest
+                pytest -m pytest
                 '''
             }
         }
@@ -37,3 +38,4 @@ pipeline {
         }
     }
 }
+
