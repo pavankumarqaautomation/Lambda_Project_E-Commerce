@@ -13,8 +13,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 bat '''
-                "C:\Soft\python.exe"  -m pip install --upgrade pip
-                "C:\Soft\python.exe"  -m pip install -r requirements.txt
+                "C:\\Soft\\python.exe"  -m pip install --upgrade pip
+                "C:\\Soft\\python.exe"  -m pip install -r requirements.txt
                 '''
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         stage('Run PyTest Suite') {
             steps {
                 bat '''
-                "C:\Soft\python.exe" -m pytest
+                "C:\\Soft\\python.exe" -m pytest
                 '''
             }
         }
@@ -37,5 +37,6 @@ pipeline {
         }
     }
 }
+
 
 
